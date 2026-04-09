@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background: #ffffff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.marquee {
+  display: inline-block;
+  min-width: 200%;
+  animation: agency-marquee 18s linear infinite;
+}
+
+@keyframes agency-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
