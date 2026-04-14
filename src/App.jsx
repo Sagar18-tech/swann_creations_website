@@ -3,6 +3,9 @@ import { useState } from 'react'
 import logo from './assets/images/logo.png'
 import cleanCodeVideo from './assets/videos/clean_code.mp4'
 import devalayaVideo from './assets/videos/devalaya.mp4'
+import fernLogo from './assets/images/fern_logo.webp'
+import renaultLogo from './assets/images/renault_logo.webp'
+import royalOrchidLogo from './assets/images/royal_orchid_logo.webp'
 import ServiceCard from './components/ServiceCard'
 import ProcessStep from './components/ProcessStep'
 import Hero3DScene from './components/Hero3DScene'
@@ -53,7 +56,11 @@ function App() {
     { title: 'Performance Analysis', subtitle: 'What’s working & what’s not', color: 'bg-blue-300' },
   ]
 
-  const previousAgencies = ['Renault', 'Royal Orchid Hotels', 'The Fern']
+  const previousAgencies = [
+    { name: 'Renault', logo: renaultLogo },
+    { name: 'Royal Orchid Hotels', logo: royalOrchidLogo },
+    { name: 'The Fern', logo: fernLogo }
+  ]
 
   return (
     <div className="bg-white text-zinc-900 overflow-x-hidden w-full relative">
@@ -246,16 +253,16 @@ function App() {
           </div>
         </section>
 
-        <section className="border-y border-zinc-200 bg-zinc-950 py-8 text-white">
+        <section className="border-y border-zinc-200/20 bg-zinc-950 py-12 md:py-16 text-white">
           <div className="mx-auto w-full max-w-6xl overflow-hidden px-6 md:px-8">
-            <p className="mb-5 text-center text-sm font-semibold uppercase tracking-wide text-zinc-300">
-              Previous Agency Experience
+            <p className="mb-8 text-center text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300">
+              TRUSTED BY LEADING BRANDS
             </p>
             <div className="marquee whitespace-nowrap">
-              {[...previousAgencies, ...previousAgencies].map((brand, index) => (
-                <span key={`${brand}-${index}`} className="mx-8 inline-flex text-2xl font-semibold tracking-wide text-yellow-300">
-                  {brand}
-                </span>
+              {[...previousAgencies, ...previousAgencies, ...previousAgencies, ...previousAgencies].map((brand, index) => (
+                <div key={`${brand.name}-${index}`} className="mx-8 md:mx-14 inline-flex items-center justify-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 drop-shadow-sm">
+                  <img src={brand.logo} alt={brand.name} className="h-10 md:h-12 lg:h-16 w-auto object-contain max-w-[120px] md:max-w-[180px]" />
+                </div>
               ))}
             </div>
           </div>
