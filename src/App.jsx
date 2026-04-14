@@ -238,6 +238,7 @@ function App() {
                     loop
                     muted
                     playsInline
+                    controls
                   />
                 </div>
               </MotionArticle>
