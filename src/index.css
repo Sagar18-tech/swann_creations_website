@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
   color: #111827;
   background: #ffffff;
+  overflow-x: hidden;
 }
 
 #root {

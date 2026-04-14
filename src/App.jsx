@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import logo from './assets/images/logo.png'
+import cleanCodeVideo from './assets/videos/clean_code.mp4'
+import devalayaVideo from './assets/videos/devalaya.mp4'
 import ServiceCard from './components/ServiceCard'
 import ProcessStep from './components/ProcessStep'
 import Hero3DScene from './components/Hero3DScene'
@@ -21,9 +23,9 @@ function App() {
         'Data-driven campaigns across search and social channels to acquire high-intent customers efficiently.',
     },
     {
-      title: 'Google Business Profile Optimization',
+      title: 'Creative Video Production',
       description:
-        'Improve local visibility with profile optimization, reputation management, and conversion-focused updates.',
+        'High-end commercial films, brand storytelling, and ad shoots designed to visually captivate and convert.',
     },
     {
       title: 'Content Creation',
@@ -54,23 +56,23 @@ function App() {
   const previousAgencies = ['Renault', 'Royal Orchid Hotels', 'The Fern']
 
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-white text-zinc-900 overflow-x-hidden w-full relative">
       <StrengthsCarousel />
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur-md">
-        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 md:px-8">
+      <header className="sticky top-0 z-50 w-full border-b border-zinc-200/50 bg-white/95 backdrop-blur-xl transition-all">
+        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:px-8">
           <a href="#" className="flex items-center gap-2 relative z-50">
-            <img src={logo} alt="Swan Creations" className="h-14 md:h-16 lg:h-20 w-auto rounded object-contain transition-all" />
+            <img src={logo} alt="Swan Creations" className="h-14 md:h-16 lg:h-20 w-auto rounded object-contain transition-transform hover:scale-105 duration-300" />
           </a>
           
-          <ul className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <li><a href="#services" className="transition hover:text-yellow-500">Services</a></li>
-            <li><a href="#process" className="transition hover:text-yellow-500">Process</a></li>
-            <li><a href="#work" className="transition hover:text-yellow-500">Work</a></li>
-            <li><a href="#contact" className="transition text-white bg-zinc-900 px-5 py-2.5 rounded-full hover:bg-zinc-800 hover:shadow-lg">Contact Us</a></li>
+          <ul className="hidden items-center gap-8 text-base font-bold md:flex text-zinc-800">
+            <li><a href="#services" className="transition hover:text-yellow-500 hover:-translate-y-0.5 block transform">Services</a></li>
+            <li><a href="#process" className="transition hover:text-yellow-500 hover:-translate-y-0.5 block transform">Process</a></li>
+            <li><a href="#work" className="transition hover:text-yellow-500 hover:-translate-y-0.5 block transform">Work</a></li>
+            <li><a href="#contact" className="transition text-zinc-900 bg-yellow-400 px-6 py-2.5 rounded-full hover:bg-yellow-300 hover:shadow-[0_0_15px_rgba(250,204,21,0.5)] transform hover:-translate-y-0.5">Contact Us</a></li>
           </ul>
 
           <button 
-            className="md:hidden relative z-50 p-2 text-zinc-900" 
+            className="md:hidden relative z-50 p-2 text-zinc-900 hover:text-yellow-500 transition-colors" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -85,17 +87,17 @@ function App() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-3xl z-40 flex flex-col items-center justify-center pt-20"
+              className="fixed top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-3xl z-40 flex flex-col items-center justify-center pt-20 pointer-events-auto"
             >
               <ul className="flex flex-col items-center gap-8 text-3xl font-black text-zinc-900">
                 <li><a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-yellow-500 transition-colors">Services</a></li>
                 <li><a href="#process" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-yellow-500 transition-colors">Process</a></li>
                 <li><a href="#work" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-yellow-500 transition-colors">Work</a></li>
-                <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="rounded-full bg-yellow-400 px-8 py-3 text-2xl hover:bg-yellow-300 transition-colors text-zinc-900">Contact Us</a></li>
+                <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="rounded-full bg-yellow-400 px-8 py-3 text-2xl hover:bg-yellow-300 transition-colors text-zinc-900 shadow-lg">Contact Us</a></li>
               </ul>
             </motion.div>
           )}
@@ -103,20 +105,15 @@ function App() {
       </header>
 
       <main>
-        <section className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:px-8 md:py-24">
-          <div className="relative">
-            {/* Animated background ambient lights */}
-            <motion.div 
-               animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }} 
-               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-               className="absolute top-[-10%] left-[-20%] h-64 w-64 rounded-full bg-yellow-400/20 blur-[80px] pointer-events-none -z-10" 
-            />
-            <motion.div 
-               animate={{ scale: [1, 1.3, 1], rotate: [0, -90, 0] }} 
-               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-               className="absolute bottom-[-10%] right-[-10%] h-64 w-64 rounded-full bg-blue-400/20 blur-[80px] pointer-events-none -z-10" 
-            />
+        <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-16 md:pt-24 pb-16">
+          {/* Background 3D Scene */}
+          <div className="absolute inset-0 z-0">
+             <Hero3DScene />
+          </div>
+          {/* Gradient overlay for readability */}
+          <div className="absolute inset-0 z-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/50 to-transparent pointer-events-none" />
 
+          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 md:grid-cols-2 md:items-center md:px-8">
             <MotionDiv
               initial="hidden"
               animate="visible"
@@ -127,77 +124,75 @@ function App() {
                   transition: { staggerChildren: 0.15 }
                 }
               }}
+              className="relative z-10"
             >
               <MotionDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                <p className="inline-flex rounded-full border border-yellow-300 bg-yellow-100 px-3 py-1 text-xs md:text-sm font-semibold uppercase tracking-wide text-zinc-800 shadow-sm">
+                <p className="inline-flex rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 text-xs md:text-sm font-semibold uppercase tracking-wide text-yellow-300 shadow-sm backdrop-blur-sm">
                   Creative Digital Agency
                 </p>
               </MotionDiv>
               
               <MotionDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                <h1 className="mt-6 text-5xl font-black leading-[1.1] tracking-tighter text-zinc-900 sm:text-6xl md:text-7xl lg:text-[5rem] drop-shadow-sm">
-                  Who We <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600">Are?</span>
+                <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.1] tracking-tighter text-white drop-shadow-sm">
+                  Who We <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Are?</span>
                 </h1>
               </MotionDiv>
               
               <MotionDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                <p className="mt-6 max-w-xl text-lg md:text-xl leading-relaxed text-zinc-600 font-medium">
+                <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg md:text-xl leading-relaxed text-zinc-300 font-medium drop-shadow-sm">
                   We are a creative digital agency that blends content, strategy, and performance marketing to help brands stand out and scale. From ad shoots to campaigns.
                 </p>
               </MotionDiv>
               
               <MotionDiv variants={{ hidden: { opacity: 0, filter: "blur(10px)" }, visible: { opacity: 1, filter: "blur(0px)" } }} transition={{ duration: 0.8 }}>
-                <p className="mt-10 text-xl md:text-3xl lg:text-4xl font-black italic tracking-tight text-zinc-900 border-l-4 border-yellow-400 pl-6">
-                  We make your brand <span className="text-yellow-500 relative inline-block">impossible to ignore.<div className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-200/50 -z-10 -rotate-1 rounded-full"></div></span>
+                <p className="mt-8 sm:mt-10 text-lg sm:text-xl md:text-3xl lg:text-3xl font-black italic tracking-tight text-white border-l-4 border-yellow-400 pl-4 sm:pl-6 drop-shadow-sm">
+                  We make your brand <span className="text-yellow-400 relative inline-block">impossible to ignore.<div className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-400/20 -z-10 -rotate-1 rounded-full"></div></span>
                 </p>
               </MotionDiv>
               
-              <MotionDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mt-10 flex flex-wrap gap-4">
+              <MotionDiv variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4">
                 <a
                   href="#contact"
-                  className="relative overflow-hidden group rounded-xl bg-yellow-400 px-8 py-4 text-sm font-bold text-zinc-900 transition-all hover:bg-yellow-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.5)] hover:-translate-y-1"
+                  className="relative overflow-hidden group rounded-xl bg-yellow-400 px-8 py-4 text-sm font-bold text-zinc-900 transition-all hover:bg-yellow-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.5)] hover:-translate-y-1 text-center"
                 >
                   <span className="relative z-10">Book a Growth Call</span>
                   <div className="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></div>
                 </a>
                 <a
                   href="#work"
-                  className="rounded-xl border-2 border-zinc-200 px-8 py-4 text-sm font-bold text-zinc-800 transition-all hover:border-zinc-900 hover:bg-zinc-900 hover:text-white hover:-translate-y-1 hover:shadow-lg"
+                  className="rounded-xl border-2 border-white/20 backdrop-blur-sm px-8 py-4 text-sm font-bold text-white transition-all hover:border-white hover:bg-white hover:text-zinc-900 hover:-translate-y-1 hover:shadow-lg text-center"
                 >
                   View Portfolio
                 </a>
               </MotionDiv>
             </MotionDiv>
-          </div>
-          <MotionDiv
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.65, delay: 0.15 }}
-            className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-950 text-white min-h-[500px] flex flex-col justify-end"
-          >
-            <div className="absolute inset-0 z-0">
-               <Hero3DScene />
-            </div>
 
-            <div className="relative z-10 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent p-8 pt-24 text-white">
-              <p className="text-sm font-semibold uppercase tracking-wide text-yellow-300">
-                Growth Snapshot
-              </p>
-              <div className="mt-6 grid gap-5 sm:grid-cols-2">
-                <div className="rounded-xl bg-white/10 p-4 backdrop-blur-md border border-white/10">
-                  <p className="text-3xl font-black text-yellow-300">5x</p>
-                  <p className="mt-2 text-sm text-zinc-200">Average lead growth from optimized funnels</p>
-                </div>
-                <div className="rounded-xl bg-white/10 p-4 backdrop-blur-md border border-white/10">
-                  <p className="text-3xl font-black text-yellow-300">120+</p>
-                  <p className="mt-2 text-sm text-zinc-200">Campaign creatives launched per quarter</p>
-                </div>
-                <div className="rounded-xl bg-white/10 p-4 sm:col-span-2 backdrop-blur-md border border-white/10">
-                  <p className="text-lg font-semibold text-zinc-100">Built for ambitious brands in hospitality, retail, and tech.</p>
+            <MotionDiv
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.4 }}
+              className="relative w-full flex flex-col justify-end xl:mt-32"
+            >
+              <div className="rounded-3xl border border-white/10 bg-zinc-950/40 p-6 md:p-8 backdrop-blur-md shadow-2xl">
+                <p className="text-sm font-semibold uppercase tracking-wide text-yellow-300">
+                  Growth Snapshot
+                </p>
+                <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                  <div className="rounded-xl bg-white/5 p-4 border border-white/10 hover:bg-white/10 transition-colors">
+                    <p className="text-3xl font-black text-yellow-300">5x</p>
+                    <p className="mt-2 text-sm text-zinc-300">Average lead growth from optimized funnels</p>
+                  </div>
+                  <div className="rounded-xl bg-white/5 p-4 border border-white/10 hover:bg-white/10 transition-colors">
+                    <p className="text-3xl font-black text-yellow-300">120+</p>
+                    <p className="mt-2 text-sm text-zinc-300">Campaign creatives launched per quarter</p>
+                  </div>
+                  <div className="rounded-xl bg-white/5 p-4 sm:col-span-2 border border-white/10 hover:bg-white/10 transition-colors">
+                    <p className="text-lg font-semibold text-zinc-100">Built for ambitious brands in hospitality, retail, and tech.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </MotionDiv>
+            </MotionDiv>
+          </div>
         </section>
 
         <ServicesShowcase services={services} />
@@ -216,24 +211,34 @@ function App() {
               Work that drives impact.
             </h2>
           </MotionDiv>
-          <div className="grid gap-5 md:grid-cols-2">
-            {['Devalaya', 'Cleancode'].map((project) => (
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              { name: 'Devalaya', video: devalayaVideo },
+              { name: 'Cleancode', video: cleanCodeVideo }
+            ].map((project) => (
               <MotionArticle
-                key={project}
+                key={project.name}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-2xl border border-zinc-200 bg-white p-6"
+                className="rounded-2xl border border-zinc-200 bg-white p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold">{project}</h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold">{project.name}</h3>
                   <span className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold text-zinc-700">
                     Case Study
                   </span>
                 </div>
-                <div className="mt-4 grid h-52 place-items-center rounded-xl border border-dashed border-zinc-300 bg-zinc-50 text-zinc-500">
-                  Project gallery placeholder
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-zinc-950 border border-zinc-200 group">
+                  <video
+                    src={project.video}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
                 </div>
               </MotionArticle>
             ))}
